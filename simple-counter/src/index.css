@@ -1,0 +1,40 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido horizontal y verticalmente */
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.reloj {
+  border: 1px solid rgb(105, 104, 104);
+  background-color: rgb(34, 33, 33);
+  padding: 5px;
+  font-size: 6em;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.digitos {
+  display: flex;
+  align-items: center;
+}
+
+.digito {
+  border: 1px solid rgb(105, 104, 104);
+  background-color: rgb(34, 33, 33);
+  padding: 5px;
+  font-size: 6em;
+  margin-right: 5px;
+}
+
+
+
+
