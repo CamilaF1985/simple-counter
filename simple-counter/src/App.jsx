@@ -1,11 +1,11 @@
 import React from 'react';
-import SecondsCounter from './SecondsCounter';'./SecondsCounter'
+import SecondsCounter from './SecondsCounter';
 import './App.css'
 function App() {
   return (
     <>
       <div>
-      <SecondsCounter />
+      <SecondsCounter /> 
       </div>
     </>
   )

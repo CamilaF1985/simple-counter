@@ -35,6 +35,19 @@ body {
   margin-right: 5px;
 }
 
+.botones {
+  display: flex;
+  gap: 16px; /* Espacio entre los botones */
+}
+
+/* Opcional: Aumentar tamaño de los botones */
+.botones button {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-left: 20px;
+}
+
+
 
 
 
