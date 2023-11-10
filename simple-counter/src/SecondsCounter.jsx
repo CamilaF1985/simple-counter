@@ -6,25 +6,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SecondsCounter() {
-  // Estado para manejar los segundos del contador
+
+    // Declara variables de estado y establece valores iniciales
   const [segundos, setSegundos] = useState(0);
-
-  // Estado para manejar si se está contando hacia arriba o hacia abajo
   const [contandoHaciaArriba, setContandoHaciaArriba] = useState(true);
-
-  // Estado para manejar si el contador está pausado o no
   const [pausado, setPausado] = useState(false);
-
-  // Estado para manejar el valor del input de la cuenta regresiva
   const [inputValueCountdown, setInputValueCountdown] = useState('');
-
-  // Estado para manejar el valor del input de la alerta
   const [inputValueAlert, setInputValueAlert] = useState('');
-
-  // Estado para el tiempo objetivo de la cuenta regresiva
   const [tiempoObjetivoCountdown, setTiempoObjetivoCountdown] = useState(0);
-
-  // Estado para el tiempo objetivo de la alerta
   const [tiempoObjetivoAlert, setTiempoObjetivoAlert] = useState(0);
 
   // Maneja el cambio en el input de la cuenta regresiva
