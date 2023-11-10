@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import StartButton from './StartButton';
 import StopButton from './StopButton';
 import ResetButton from './ResetButton';
+import Alert from './Alert';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SecondsCounter() {
   const [segundos, setSegundos] = useState(0);
   const [contandoHaciaArriba, setContandoHaciaArriba] = useState(true);
   const [cuentaRegresiva, setCuentaRegresiva] = useState(false);
   const [pausado, setPausado] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [tiempoObjetivo, setTiempoObjetivo] = useState(0);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
 
   const handleStart = () => {
     setPausado(false);
@@ -29,6 +38,24 @@ function SecondsCounter() {
     setContandoHaciaArriba(!cuentaRegresiva);
     setCuentaRegresiva(false);
   };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
+  const handleSetAlert = () => {
+    const segundosInput = parseInt(inputValue, 10);
+    if (!isNaN(segundosInput)) {
+      setTiempoObjetivo(segundosInput);
+      setShowAlert(false);
+    }
+  };
+
+  useEffect(() => {
+    if (segundos === tiempoObjetivo && tiempoObjetivo !== 0) {
+      setShowAlert(true);
+    }
+  }, [segundos, tiempoObjetivo]);
 
   useEffect(() => {
     let intervalId;
@@ -85,11 +112,26 @@ function SecondsCounter() {
         <StopButton onStop={handleStop} />
         <ResetButton onReset={handleReset} />
       </div>
+      {/* Agrega el input */}
+      <div className="input-container">
+        <input
+          type="number"
+          placeholder="Ingresa segundos"
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSetAlert}>Establecer Alerta</button>
+      </div>
+      {/* Agrega el componente Alert */}
+      <Alert showAlert={showAlert} onClose={handleCloseAlert} />
     </div>
   );
 }
 
 export default SecondsCounter;
+
+
+
 
 
 
