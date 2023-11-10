@@ -96,39 +96,43 @@ function SecondsCounter() {
   const secondsString = formatDigits(segundos);
 
   return (
-    <div className="contador">
-      <div className="reloj">
-        <i className="far fa-clock"></i>
+    <div className="contador-container">
+      <div className="contador">
+        <div className="reloj">
+          <i className="far fa-clock"></i>
+        </div>
+        <div className="digitos">
+          {secondsString.split('').map((digit, index) => (
+            <div className="digito" key={index}>
+              {digit}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="digitos">
-        {secondsString.split('').map((digit, index) => (
-          <div className="digito" key={index}>
-            {digit}
-          </div>
-        ))}
+      <div className="botones-container">
+        <div className="botones">
+          <StartButton onStart={handleStart} />
+          <StopButton onStop={handleStop} />
+          <ResetButton onReset={handleReset} />
+        </div>
+        <div className="input-container">
+          <input
+            type="number"
+            placeholder="Ingresa segundos"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleSetAlert}>Establecer Alerta</button>
+        </div>
       </div>
-      <div className="botones">
-        <StartButton onStart={handleStart} />
-        <StopButton onStop={handleStop} />
-        <ResetButton onReset={handleReset} />
-      </div>
-      {/* Agrega el input */}
-      <div className="input-container">
-        <input
-          type="number"
-          placeholder="Ingresa segundos"
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSetAlert}>Establecer Alerta</button>
-      </div>
-      {/* Agrega el componente Alert */}
       <Alert showAlert={showAlert} onClose={handleCloseAlert} />
     </div>
   );
 }
 
 export default SecondsCounter;
+
+
 
 
 
